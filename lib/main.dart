@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import 'core/init/notifier/provider_notifer.dart';
 import 'feature/serviceExample/view/user_data_view.dart';
 
 void main() async {
@@ -10,10 +8,11 @@ void main() async {
   //await LocaleManager.prefrencesInit();
 
   // await EasyLocalization.ensureInitialized();
-  runApp(MultiProvider(
+  /*  runApp(MultiProvider(
     providers: [...ApplicationProvider.instance.dependItems],
     child: MyApp(),
-  ));
+  )); */
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

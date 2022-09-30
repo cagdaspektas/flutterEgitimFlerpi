@@ -15,12 +15,13 @@ class UserDataView extends StatelessWidget {
           model.init();
         },
         builder: (BuildContext context, UserDataViewModel viewModel) => Scaffold(
+              appBar: AppBar(),
               body: Column(
                 children: [
                   /*   viewModel.getUserDataModel?.data?.data?.email != null
                       ? Text(viewModel.getUserDataModel!.data!.data!.email!)
                       : const SizedBox() */
-                  Text(viewModel.getUserDataModel?.data?.data?.email ?? ""),
+                  Text(viewModel.getUserDataModel?.data?.data?.email ?? "gelemedim"),
                 ],
               ),
             ));
