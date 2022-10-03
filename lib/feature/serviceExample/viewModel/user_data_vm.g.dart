@@ -25,6 +25,22 @@ mixin _$UserDataViewModel on _UserDataViewModelBase, Store {
     });
   }
 
+  late final _$isLoadingAtom =
+      Atom(name: '_UserDataViewModelBase.isLoading', context: context);
+
+  @override
+  bool get isLoading {
+    _$isLoadingAtom.reportRead();
+    return super.isLoading;
+  }
+
+  @override
+  set isLoading(bool value) {
+    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
+      super.isLoading = value;
+    });
+  }
+
   late final _$getUserDataFunAsyncAction =
       AsyncAction('_UserDataViewModelBase.getUserDataFun', context: context);
 
@@ -33,10 +49,25 @@ mixin _$UserDataViewModel on _UserDataViewModelBase, Store {
     return _$getUserDataFunAsyncAction.run(() => super.getUserDataFun());
   }
 
+  late final _$_UserDataViewModelBaseActionController =
+      ActionController(name: '_UserDataViewModelBase', context: context);
+
+  @override
+  void changeLoading() {
+    final _$actionInfo = _$_UserDataViewModelBaseActionController.startAction(
+        name: '_UserDataViewModelBase.changeLoading');
+    try {
+      return super.changeLoading();
+    } finally {
+      _$_UserDataViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
-getUserDataModel: ${getUserDataModel}
+getUserDataModel: ${getUserDataModel},
+isLoading: ${isLoading}
     ''';
   }
 }

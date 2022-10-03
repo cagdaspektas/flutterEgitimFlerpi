@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'feature/serviceExample/view/user_data_view.dart';
+import 'feature/serviceExample2/view/get_list_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: UserDataView(),
+      home: GetListDataView(),
     );
   }
 }

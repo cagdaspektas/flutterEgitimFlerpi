@@ -12,6 +12,8 @@ class UserDataViewModel = _UserDataViewModelBase with _$UserDataViewModel;
 abstract class _UserDataViewModelBase with Store, BaseViewModel {
   @observable
   IResponseModel<GetUserDataModel?>? getUserDataModel;
+  @observable
+  bool isLoading = false;
 
   late IGetDataUserService getDataUserService;
 
@@ -24,8 +26,18 @@ abstract class _UserDataViewModelBase with Store, BaseViewModel {
   }
 
   @action
+  void changeLoading() {
+    isLoading = !isLoading;
+    print("giriyom");
+  }
+
+  @action
   Future<IResponseModel<GetUserDataModel?>?> getUserDataFun() async {
+    changeLoading();
+
     getUserDataModel = await getDataUserService.getUserData();
+    changeLoading();
+
     return getUserDataModel;
   }
 }

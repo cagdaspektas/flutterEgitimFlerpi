@@ -11,8 +11,8 @@ class ProjectConstants {
     _instace ??= ProjectConstants._normal(baseUrl);
   }
 
-  static const String baseUrl = 'https://reqres.in/';
-
+//  static const String baseUrl = 'https://reqres.in/';
+  static const String baseUrl = 'https://jsonplaceholder.typicode.com/';
   late final String assetLangPath;
 
   late INetworkManager networkManager;
